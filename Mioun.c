@@ -57,7 +57,7 @@ int main(){
 	insertion_sort(nums,FIFTY);
 	for (int i = 0; i < FIFTY; i++)
 	{
-	   printf("%d ,",*(nums+i));
+	   printf("%d,",*(nums+i));
 	}
 	putchar('\n');
 	return 0;
