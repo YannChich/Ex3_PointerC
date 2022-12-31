@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define FIFTY 5
+#define FIFTY 50
 	
 void shift_element(int *arr, int i){
 	int counter = 0;
@@ -57,7 +57,8 @@ int main(){
 	insertion_sort(nums,FIFTY);
 	for (int i = 0; i < FIFTY; i++)
 	{
-	   printf("%d",*(nums+i));
-	}	
+	   printf("%d ,",*(nums+i));
+	}
+	putchar('\n');
 	return 0;
 	}
