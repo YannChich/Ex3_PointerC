@@ -10,8 +10,10 @@
 int Mygetline(char s[]){  // the size of the line is maximum 256 bytes , i need to count every char and stop when i got : '\n' or 256 bytes
     char *p_line = s;   // pointer to the first char of the line
     int counter = 0;    // counter to know how many char i have on the line
+    char Cget;
     while(counter < LINE && *p_line != '\n'){
-        p_line++;   // the next char 
+        Cget = getchar(); // Read a char from the Terminal
+        *p_line++ = Cget;   // put the char in p and augment 
         counter++;
     }
     return counter;
@@ -20,8 +22,10 @@ int Mygetline(char s[]){  // the size of the line is maximum 256 bytes , i need 
 int Mygetword(char w[]){ // same logic of Mygetline()
     char *p_word = w;
     int counter = 0;
+    char Cget;
     while(counter < WORD && *p_word != ' ' && *p_word != '\t' && *p_word != '\n'){
-        p_word++;
+        Cget = getchar();
+        *p_word++ = Cget;
         counter++;
     }
     return counter;
