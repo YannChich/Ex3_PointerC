@@ -10,24 +10,26 @@
 int Mygetline(char s[]){  // the size of the line is maximum 256 bytes , i need to count every char and stop when i got : '\n' or 256 bytes
     char *p_line = s;   // pointer to the first char of the line
     int counter = 0;    // counter to know how many char i have on the line
-    char Cget;
-    while(counter < LINE && *p_line != '\n'){
+    char Cget = getchar();
+    while(counter < LINE && Cget != '\n'){
         Cget = getchar(); // Read a char from the Terminal
         *p_line++ = Cget;   // put the char in p and augment 
         counter++;
     }
+    *++p_line = '\0';
     return counter;
 }
 
 int Mygetword(char w[]){ // same logic of Mygetline()
     char *p_word = w;
     int counter = 0;
-    char Cget;
-    while(counter < WORD && *p_word != ' ' && *p_word != '\t' && *p_word != '\n'){
+    char Cget = getchar();
+    while(counter < WORD &&  Cget != ' ' && Cget != '\t' && Cget != '\n'){
         Cget = getchar();
         *p_word++ = Cget;
         counter++;
     }
+    *++p_word = '\0';
     return counter;
 }
 
@@ -96,8 +98,8 @@ int similar (char *s,char *t, int n){
 int main(){
 
 char s[] = "yaoynn";
-char s2[] = "yann";
-int d = similar(s,s2,2);
+char s2[LINE]= {0} ;
+int d = Mygetline(s2);
 printf("%d\n",d);
 
 
